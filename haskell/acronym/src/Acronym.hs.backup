@@ -1,0 +1,18 @@
+module Acronym (abbreviate) where
+import Data.Char (isUpper, toUpper)
+import Data.List (groupBy)
+
+abbreviate :: String -> String
+abbreviate xs =
+    -- map (toUpper . head) (concat (map words (divideOnUppercase (sortOutCapSequences xs))))
+  let listOfWords =  divideOnUppercase ( words xs)
+  in  concat (capitalizeFirsts listOfWords)
+
+
+divideOnUppercase :: [String] -> [String]
+divideOnUppercase xs =
+ concat (map (groupBy (\a  b -> (isUpper a /= isUpper b))) xs)
+ 
+capitalizeFirsts :: [String] -> [String]
+capitalizeFirsts xs =
+  [ toUpper (head x): tail x | x <- xs]

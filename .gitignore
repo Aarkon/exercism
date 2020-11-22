@@ -1,0 +1,20 @@
+*.iml
+*.idea/
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# IntelliJ
+out/
+
+# Java
+*.class
+*.classpath
+
+# general
+*.cache
+/java/.project
+**.attach_pid*
+**/.metadata
+*.project
+**/.vscode

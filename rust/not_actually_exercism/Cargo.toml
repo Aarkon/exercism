@@ -1,0 +1,7 @@
+[package]
+name = "piglatin"
+version = "0.1.0"
+authors = ["Fluentifer <papierkram@nurfuerspam.de>"]
+edition = "2018"
+
+[dependencies]
