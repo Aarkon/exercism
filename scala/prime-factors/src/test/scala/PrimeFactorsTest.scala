@@ -34,6 +34,6 @@ class PrimeFactorsTest extends FunSuite with Matchers {
 
   test("factors include a large prime") {
     pending
-    PrimeFactors.factors(93819012551l) should be(List(11, 9539, 894119))
+    PrimeFactors.factors(93819012551L) should be(List(11, 9539, 894119))
   }
 }
