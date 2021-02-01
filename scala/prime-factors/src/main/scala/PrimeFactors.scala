@@ -1,4 +1,6 @@
 object PrimeFactors {
-  val factors: Long  => Seq[Long] = (n: Long) => (1 to n).filter(isPrime)
-  val isPrime: Long => Boolean = (n: Long) => (1 to n).count(i => n % i == 0) < 2
+  implicit val intToLong: Int => Long = n => n.toLong
+
+  def factors(n: Long): List[Long] = (2L to n).filter(isPrime).toList
+  val isPrime: Long => Boolean = (n: Long) => (1L to n).count(i => n % i == 0) < 2
 }
