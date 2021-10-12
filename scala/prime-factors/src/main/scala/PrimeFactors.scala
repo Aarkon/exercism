@@ -1,6 +1,15 @@
-object PrimeFactors {
-  implicit val intToLong: Int => Long = n => n.toLong
+import scala.annotation.tailrec
 
-  def factors(n: Long): List[Long] = (2L to n).filter(isPrime).toList
-  val isPrime: Long => Boolean = (n: Long) => (1L to n).count(i => n % i == 0) < 2
+object PrimeFactors {
+  def factors(n: Long): List[Long] = {
+    @tailrec
+    def factorsRec(n: Long, div: Long, acc: List[Long]): List[Long] = {
+      if (div > n) acc else {
+        if (n % div == 0) factorsRec(n / div, div, acc :+ div)
+        else factorsRec(n, div + 1, acc)
+      }
+    }
+
+    factorsRec(n, 2, List())
+  }
 }

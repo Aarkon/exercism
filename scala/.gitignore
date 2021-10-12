@@ -91,3 +91,4 @@ project/plugins/project/
 .lib/
 
 **/build.properties
+**/sbt.json
