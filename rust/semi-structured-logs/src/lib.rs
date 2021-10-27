@@ -4,11 +4,12 @@
 
 use core::fmt;
 use std::fmt::Formatter;
-use crate::LogLevel::{Error, Info, Warning};
+use crate::LogLevel::{Debug, Error, Info, Warning};
 
 /// various log levels
-#[derive(Clone, PartialEq, Debug)]
+#[derive(Clone, PartialEq, core::fmt::Debug)]
 pub enum LogLevel {
+    Debug,
     Info,
     Warning,
     Error,
@@ -25,6 +26,9 @@ pub fn log(level: LogLevel, message: &str) -> String {
 }
 pub fn info(message: &str) -> String {
     log(Info, message)
+}
+pub fn debug(message: &str) -> String {
+    log(Debug, message)
 }
 pub fn warn(message: &str) -> String {
     log(Warning, message)
