@@ -2,6 +2,10 @@
 // to enable stricter warnings.
 #![allow(unused)]
 
+use core::fmt;
+use std::fmt::Formatter;
+use crate::LogLevel::{Error, Info, Warning};
+
 /// various log levels
 #[derive(Clone, PartialEq, Debug)]
 pub enum LogLevel {
@@ -9,16 +13,22 @@ pub enum LogLevel {
     Warning,
     Error,
 }
+
+impl fmt::Display for LogLevel {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
 /// primary function for emitting logs
 pub fn log(level: LogLevel, message: &str) -> String {
-    unimplemented!()
+    format!("[{}]: {}", level.to_string().to_uppercase(), message)
 }
 pub fn info(message: &str) -> String {
-    unimplemented!()
+    log(Info, message)
 }
 pub fn warn(message: &str) -> String {
-    unimplemented!()
+    log(Warning, message)
 }
 pub fn error(message: &str) -> String {
-    unimplemented!()
+    log(Error, message)
 }
